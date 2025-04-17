@@ -1,0 +1,7 @@
+<p>login works!</p>
+<h2>Login</h2>
+<form (ngSubmit)="onLogin(loginForm)" #loginForm="ngForm">
+  <input name="username" [(ngModel)]="credentials.username" placeholder="Username" required><br>
+  <input name="password" [(ngModel)]="credentials.password" type="password" placeholder="Password" required><br>
+  <button type="submit">Login</button>
+</form>
