@@ -1,13 +1,17 @@
-<p>signup works!</p>
+
 <h2>Signup</h2>
 <form (ngSubmit)="onSignup(signupForm)" #signupForm="ngForm">
   <input name="username" [(ngModel)]="user.username" placeholder="Username" required><br>
   <input name="name" [(ngModel)]="user.name" placeholder="Full Name" required><br>
   <input name="email" [(ngModel)]="user.email" placeholder="Email" type="email" required><br>
   <input name="password" [(ngModel)]="user.password" placeholder="Password" type="password" required><br>
+  <input type="text" name="phone" [(ngModel)]="user.phone" required pattern="[0-9]{10}" placeholder="Phone" />
+
   <select name="role" [(ngModel)]="user.role" required>
     <option value="USER">User</option>
     <option value="ADMIN">Admin</option>
+    <option value="SELLER">Seller</option>
+
   </select><br>
   <button type="submit">Signup</button>
 </form>

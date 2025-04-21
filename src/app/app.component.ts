@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'car-booking';
+  showPanel = false;
+  activePanel: 'login' | 'signup' | null = null;
+
+  openPanel(panel: 'login' | 'signup') {
+    this.activePanel = panel;
+    this.showPanel = true;
+  }
 }
