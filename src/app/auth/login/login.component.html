@@ -1,7 +1,21 @@
 
 <h2>Login</h2>
 <form (ngSubmit)="onLogin(loginForm)" #loginForm="ngForm">
+
   <input name="username" [(ngModel)]="credentials.username" placeholder="Username" required><br>
+
   <input name="password" [(ngModel)]="credentials.password" type="password" placeholder="Password" required><br>
+
+  <div class="forget-password">
+     <a routerLink="/forget-password">Forgot Password?</a>
+  </div>
+
   <button type="submit">Login</button>
+
+  <div class="login-link">
+    <p>Create Account <a routerLink="/signup">Click here to sign up </a></p>
+ 
+
+
+  </div>
 </form>

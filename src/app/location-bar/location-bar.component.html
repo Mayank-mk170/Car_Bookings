@@ -1,0 +1,59 @@
+
+   <div class="location-container">
+    <input
+      type="text"
+      placeholder="Choose Location"
+      readonly
+      (click)="openPopup()"
+      class="location-input"
+    />
+  </div>
+  
+  <!-- Popup Modal for Locations -->
+  <div class="location-popup" *ngIf="showPopup">
+    <div class="popup-header">
+      <h3>Select a Location</h3>
+      <button (click)="closePopup()">✖️</button>
+    </div>
+  
+    <input
+      type="text"
+      [(ngModel)]="searchText"
+      (ngModelChange)="onInputChange()"
+      placeholder="Search location"
+      class="popup-search"
+    />
+  
+  <!-- <div class="location-popup"> -->
+  <!-- Search bar -->
+  <!-- <input type="text" placeholder="Search for your city" class="search-input" [(ngModel)]="searchText" /> -->
+
+  Detect location
+  <div class="detect-location" (click)="detectMyLocation()">
+    <span class="icon">📍</span> Detect my location
+  </div>
+     
+  <div *ngIf="!searchText">
+    <h4>Popular Cities</h4>
+    <div class="popular-cities-container">
+      <div class="city-item" *ngFor="let city of popularCities" (click)="selectLocation(city)">
+        <img [src]="city.logo" alt="{{ city.name }} logo" class="city-logo" />
+        <span>{{ city.name }}</span>
+      </div>
+    </div>
+  </div>
+
+  
+    <ul class="location-list" *ngIf="searchText && suggestions.length">
+      <li *ngFor="let suggestion of suggestions" (click)="selectLocation(suggestion)">
+        {{ suggestion.properties.formatted }}
+      </li>
+    </ul>
+
+
+    <div *ngIf="searchText && !suggestions.length">
+      <p>No locations found.</p>
+    </div>
+
+  </div>
+  

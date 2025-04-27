@@ -1,7 +1,46 @@
-<!-- src/app/app.component.html -->
-<h1>Second Hand Car Booking</h1>
-<a routerLink="/signup">Signup</a> | <a routerLink="/login">Login</a>
-<router-outlet></router-outlet>
-
+<!-- Top Horizontal Navbar -->
+<div class="top-navbar">
+  <!-- Website Name and Logo -->
   
+  <div class="brand">
+    <div class="site-title">CarRatha</div>
+    <img src="assets/images/Cars/Logo.png" alt="Logo" class="logo" />
+  </div>
 
+
+  <!-- Location Input -->
+  <div class="location-box">
+    <label for="location">Location:</label>
+    <app-location-bar></app-location-bar>
+  </div>
+
+  <!-- Navigation Links -->
+  <div class="nav-links">
+    <a routerLink="/buy-car" routerLinkActive="active">Buy Car</a>
+    <a routerLink="/sell-car" routerLinkActive="active">Sell Car</a>
+    <a routerLink="/car-finance" routerLinkActive="active">Car Finance</a>
+    <a routerLink="/new-car" routerLinkActive="active">New Car</a>
+    <a routerLink="/car-service" routerLinkActive="active">Car Service</a>
+  </div>
+
+  <!-- Account Links -->
+  <div class="auth-links">
+    <a routerLink="/signup" routerLinkActive="active">Signup</a>
+
+    <a routerLink="/login" routerLinkActive="active">Login</a>
+  </div>
+</div>
+
+<!-- Car Banner Image -->
+
+<div class="car-banner" *ngIf="!isAuthRoute()">
+  <img src="assets/images/Cars/car.png" alt="Car Banner" />
+</div>
+
+
+<!-- Routed Page Content -->
+<div class="main-content">
+  <router-outlet></router-outlet>
+</div>
+
+<a routerLink="/buy-car" routerLinkActive="active">Buy Car</a>

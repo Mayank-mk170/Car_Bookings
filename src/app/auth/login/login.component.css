@@ -1,0 +1,66 @@
+form {
+    width: 300px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+  }
+  
+  button {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  .login-link {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .login-link a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .login-link a:hover {
+    text-decoration: underline;
+  }
+  
+  .forgot-password {
+    text-align: right;
+    margin-bottom: 10px;
+  }
+  
+  .forgot-password a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .forgot-password a:hover {
+    text-decoration: underline;
+  }
+  

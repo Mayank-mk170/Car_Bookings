@@ -1,0 +1,59 @@
+<form (ngSubmit)="onSubmit()" #carForm="ngForm">
+  <input type="text" name="name" [(ngModel)]="car.name" required placeholder="Car Name" />
+  <input type="text" name="modelNumber" [(ngModel)]="car.modelNumber" required placeholder="Model Number" />
+  <input type="date" name="yearOfManufacture" [(ngModel)]="car.yearOfManufacture" required />
+  
+  <select name="fuelType" [(ngModel)]="car.fuelType">
+    <option *ngFor="let type of fuelTypes" [value]="type">{{ type }}</option>
+  </select>
+  
+  <input type="number" name="kmRun" [(ngModel)]="car.kmRun" required placeholder="KM Run" />
+  
+  <select name="transmission" [(ngModel)]="car.transmission">
+    <option *ngFor="let trans of transmissions" [value]="trans">{{ trans }}</option>
+  </select>
+  
+  <input type="number" name="owner" [(ngModel)]="car.owner" required placeholder="Owner Number" />
+  <input type="number" name="price" [(ngModel)]="car.price" required placeholder="Price" />
+  <input type="text" name="imageUrl" [(ngModel)]="car.imageUrl" placeholder="Image URL" />
+  <textarea name="description" [(ngModel)]="car.description" placeholder="Description"></textarea>
+  
+  <button type="submit">{{ isEditMode ? 'Update' : 'Add' }} Car</button>
+</form>
+
+<div class="search-container">
+  <h2>Search Cars</h2>
+  <form (ngSubmit)="searchCars()">
+    <div class="form-group">
+      <label for="carName">Car Name:</label>
+      <input id="carName" [(ngModel)]="searchName" name="name" type="text" class="form-control" placeholder="Enter car name">
+    </div>
+    
+    <div class="form-group">
+      <label for="fuelType">Fuel Type:</label>
+      <input id="fuelType" [(ngModel)]="searchFuelType" name="fuelType" type="text" class="form-control" placeholder="Enter fuel type">
+    </div>
+
+    <div class="form-group">
+      <label for="price">Max Price:</label>
+      <input id="price" [(ngModel)]="searchPrice" name="price" type="number" class="form-control" placeholder="Enter max price">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+</div>
+
+<div class="car-list">
+  <div class="car-card" *ngFor="let car of filteredCars">
+    <img [src]="car.imageUrl" alt="Car image" class="car-image">
+    <div class="car-info">
+      <h4>{{ car.name }}</h4>
+      <p><strong>Model:</strong> {{ car.modelNumber }}</p>
+      <p><strong>Price:</strong> ₹{{ car.price | number }}</p>
+      <p><strong>Fuel Type:</strong> {{ car.fuelType }}</p>
+      <p><strong>Km Run:</strong> {{ car.kmRun }} km</p>
+      <button (click)="buyCar(car.id)" class="btn btn-success" [disabled]="car.sold">Buy</button>
+    </div>
+  </div>
+</div>
+

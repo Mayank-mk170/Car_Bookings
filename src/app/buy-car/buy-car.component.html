@@ -1,0 +1,41 @@
+<h2>Buy Cars</h2>
+
+
+
+<div class="filter-bar">
+    <input type="text" placeholder="Search by car name or model" [(ngModel)]="searchText" (input)="applyFilters()"/>
+
+    <select [(ngModel)]="selectedFuel" (change)="applyFilters()">
+      <option value="">All Fuels</option>
+      <option value="PETROL">Petrol</option>
+      <option value="DIESEL">Diesel</option>
+      <option value="ELECTRIC">Electric</option>
+      <option value="CNG">CNG</option>
+    </select>
+
+    <select [(ngModel)]="selectedPrice" (change)="applyFilters()">
+      <option value="">All Prices</option>
+      <option value="under5">Under ₹5 Lakh</option>
+      <option value="5to10">₹5 - ₹10 Lakh</option>
+      <option value="above10">Above ₹10 Lakh</option>
+    </select>    
+
+    <button (click)="applyFilters()">Search</button>
+</div>
+
+<div class="car-list">
+  <div *ngFor="let car of filteredCars" class="car-card">
+    <img [src]="car.imageUrl" alt="{{ car.name }}">
+    <h2>{{ car.name }}</h2>
+    <p>Model: {{ car.modelNumber }}</p>
+    <p>Year: {{ car.yearOfManufacture }}</p>
+    <p>Fuel Type: {{ car.fuelType }}</p>
+    <p>KM Run: {{ car.kmRun }}</p>
+    <p>Transmission: {{ car.transmission }}</p>
+    <p>Owner: {{ car.owner }}</p>
+    <p>Price: ₹{{ car.price }}</p>
+    <p>Description: {{ car.description }}</p>
+    <button class="buy-now-button" (click)="buyCar(car.id)">Buy Now</button>
+
+  </div>
+</div>

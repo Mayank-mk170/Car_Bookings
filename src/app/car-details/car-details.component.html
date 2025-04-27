@@ -1,0 +1,13 @@
+<p>car-details works!</p>
+<div *ngIf="car" class="car-details">
+  <img [src]="car.imageUrl" alt="{{ car.name }}" class="details-image">
+  <h2>{{ car.name }}</h2>
+  <p><strong>Model Number:</strong> {{ car.modelNumber }}</p>
+  <p><strong>Year:</strong> {{ car.yearOfManufacture }}</p>
+  <p><strong>Fuel Type:</strong> {{ car.fuelType }}</p>
+  <p><strong>KMs Run:</strong> {{ car.kmRun }} km</p>
+  <p><strong>Transmission:</strong> {{ car.transmission }}</p>
+  <p><strong>Owner:</strong> {{ car.owner }}</p>
+  <p><strong>Price:</strong> ₹{{ car.price }}</p>
+  <p><strong>Description:</strong> {{ car.description }}</p>
+</div>
